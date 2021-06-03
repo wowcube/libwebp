@@ -76,6 +76,11 @@ WEBP_EXTERN uint8_t* WebPDecodeRGB(const uint8_t* data, size_t data_size,
 WEBP_EXTERN uint8_t* WebPDecodeBGR(const uint8_t* data, size_t data_size,
                                    int* width, int* height);
 
+// Same as WebPDecodeRGB, but returning R:5, G:6, B:5, R:5, G:6, B:5... ordered data.
+// If the bitstream contains transparency, it is ignored.
+WEBP_EXTERN uint8_t* WebPDecodeRGB565(const uint8_t* data, size_t data_size,
+                                      int* width, int* height);
+
 
 // Decode WebP images pointed to by 'data' to Y'UV format(*). The pointer
 // returned is the Y samples buffer. Upon return, *u and *v will point to
@@ -108,6 +113,10 @@ WEBP_EXTERN uint8_t* WebPDecodeARGBInto(
 WEBP_EXTERN uint8_t* WebPDecodeBGRAInto(
     const uint8_t* data, size_t data_size,
     uint8_t* output_buffer, size_t output_buffer_size, int output_stride);
+
+WEBP_EXTERN uint8_t* WebPDecodeRGB565Into(
+        const uint8_t* data, size_t data_size,
+        uint8_t* output_buffer, size_t output_buffer_size, int output_stride);
 
 // RGB and BGR variants. Here too the transparency information, if present,
 // will be dropped and ignored.
