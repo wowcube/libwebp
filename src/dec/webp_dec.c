@@ -655,6 +655,11 @@ uint8_t* WebPDecodeARGB(const uint8_t* data, size_t data_size,
   return Decode(MODE_ARGB, data, data_size, width, height, NULL);
 }
 
+uint8_t* WebPDecodeRGBA4444(const uint8_t* data, size_t data_size,
+                        int* width, int* height) {
+  return Decode(MODE_RGBA_4444, data, data_size, width, height, NULL);
+}
+
 uint8_t* WebPDecodeBGR(const uint8_t* data, size_t data_size,
                        int* width, int* height) {
   return Decode(MODE_BGR, data, data_size, width, height, NULL);
