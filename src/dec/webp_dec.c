@@ -577,6 +577,11 @@ uint8_t* WebPDecodeRGB565Into(const uint8_t* data, size_t data_size,
   return DecodeIntoRGBABuffer(MODE_RGB_565, data, data_size, output, stride, size);
 }
 
+uint8_t* WebPDecodeRGBA4444Into(const uint8_t* data, size_t data_size,
+                            uint8_t* output, size_t size, int stride) {
+  return DecodeIntoRGBABuffer(MODE_RGBA_4444, data, data_size, output, stride, size);
+}
+
 uint8_t* WebPDecodeYUVInto(const uint8_t* data, size_t data_size,
                            uint8_t* luma, size_t luma_size, int luma_stride,
                            uint8_t* u, size_t u_size, int u_stride,

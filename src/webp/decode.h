@@ -122,6 +122,10 @@ WEBP_EXTERN uint8_t* WebPDecodeRGB565Into(
         const uint8_t* data, size_t data_size,
         uint8_t* output_buffer, size_t output_buffer_size, int output_stride);
 
+WEBP_EXTERN uint8_t* WebPDecodeRGBA4444Into(
+        const uint8_t* data, size_t data_size,
+        uint8_t* output_buffer, size_t output_buffer_size, int output_stride);
+
 // RGB and BGR variants. Here too the transparency information, if present,
 // will be dropped and ignored.
 WEBP_EXTERN uint8_t* WebPDecodeRGBInto(

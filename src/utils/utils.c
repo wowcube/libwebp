@@ -194,7 +194,8 @@ void* WebPSafeMalloc(uint64_t nmemb, size_t size) {
   Increment(&num_malloc_calls);
   if (!CheckSizeArgumentsOverflow(nmemb, size)) return NULL;
   assert(nmemb * size > 0);
-  ptr = MEMMNG_applicationMalloc((size_t)(nmemb * size));
+  // ptr = MEMMNG_applicationMalloc((size_t)(nmemb * size));
+  ptr = MEMMNG_malloc_NC((size_t)(nmemb * size));
   AddMem(ptr, (size_t)(nmemb * size));
   return ptr;
 }
@@ -214,7 +215,8 @@ void WebPSafeFree(void* const ptr) {
     Increment(&num_free_calls);
     SubMem(ptr);
   }
-  MEMMNG_applicationFree(ptr);
+  // MEMMNG_applicationFree(ptr);
+  MEMMNG_free_NC(ptr);
 }
 
 // Public API functions.
